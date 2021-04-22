@@ -1,12 +1,15 @@
 import React from 'react';
+import { TotalScreen } from './components';
+
 import { GlobalStyles } from './global-styles';
-import AppRouter from './routes/app.routes';
+// import AppRouter from './routes/app.routes';
 
 const App = () => {
   return (
     <>
       <GlobalStyles />
-      <AppRouter />
+      <TotalScreen />
+      {/* <AppRouter /> */}
     </>
   );
 };

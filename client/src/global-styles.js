@@ -1,6 +1,15 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
-export const darkColor = '#000a12';
+// rgba(240, 246, 252, 0.1)
+// rgba(f0, f6, fc, 0.1)
+
+export const darkColor = '#0d1117';
+export const mediumColor = '#161b22';
+export const borderColor = '#30363d';
+export const shadowColor = '#f0f6fc19';
+export const textoColor = '#c9d1d9';
+export const textoSecColor = '#8b949e';
+
 export const ligthColor = '#eeeeee';
 export const orangeColor = '#ff5722';
 export const blueColor = '#2196f3';
@@ -18,18 +27,18 @@ export const backgroundColor = {
   },
 };
 
-export const textColor = {
-  primary: {
-    normal: '#ffffff',
-    light: '#ffffff',
-    dark: '#ffffff',
-  },
-  secondary: {
-    normal: '#ffffff',
-    light: '#000000',
-    dark: '#ffffff',
-  },
-};
+// export const textColor = {
+//   primary: {
+//     normal: '#ffffff',
+//     light: '#ffffff',
+//     dark: '#ffffff',
+//   },
+//   secondary: {
+//     normal: '#ffffff',
+//     light: '#000000',
+//     dark: '#ffffff',
+//   },
+// };
 
 export const BackScreen = styled.div`
   background-color: rgba(0, 0, 0, 0.8);
@@ -57,8 +66,11 @@ body, html {
   margin: 0;
   padding: 0;
   /* font-family: 'Roboto', sans-serif, Helvetica, Arial; */
-  font-family: 'Quicksand', sans-serif, Helvetica, Arial ;
+  /* font-family: 'Quicksand', sans-serif, Helvetica, Arial ; */
+  font-family: 'Open Sans', sans-serif;
   background-attachment: fixed;
+  background-color: ${darkColor};
+
   /* background-color: yellow; */
 }
 
