@@ -79,8 +79,8 @@ body, html {
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  /* background-color: pink; */
+  /* height: 100%; */
+  background-color: pink;
 }
 
 .selected{

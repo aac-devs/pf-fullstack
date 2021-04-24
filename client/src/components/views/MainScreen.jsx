@@ -3,15 +3,16 @@ import { HashRouter as Router } from 'react-router-dom';
 import styled from 'styled-components';
 import { borderColor, darkColor } from '../../global-styles';
 import BodyScreen from './BodyScreen';
-import Tabs from './Tabs';
+import Tabs from '../grid/Tabs';
 
 const Container = styled.div`
-  /* background-color: cyan; */
+  background-color: cyan;
   /* height: 100%; */
 `;
 
 const Main = styled.div`
   background-color: ${darkColor};
+  background-color: fuchsia;
   max-width: 1280px;
   margin-right: auto;
   margin-left: auto;
@@ -26,11 +27,12 @@ const Main = styled.div`
 
 const Header = styled.div`
   margin-top: 24px;
-  /* background-color: purple; */
+  background-color: purple;
   border-bottom: 1px solid ${borderColor};
 
   .header-container {
     background-color: ${darkColor};
+    background-color: orangered;
     max-width: 1280px;
     display: flex;
     margin-right: auto;

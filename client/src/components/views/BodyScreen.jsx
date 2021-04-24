@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { darkColor, textoColor } from '../../global-styles';
-import DescriptionCard from '../content/DescriptionCard';
-import InfoCard from '../content/InfoCard';
+import DescriptionCard from '../grid/DescriptionCard';
+import InfoCard from '../grid/InfoCard';
 
 const Container = styled.div`
-  /* background-color: wheat; */
+  background-color: wheat;
   display: flex;
   margin-right: -8px;
   margin-left: -8px;
@@ -13,10 +13,12 @@ const Container = styled.div`
 
 const Sidebar = styled.div`
   background-color: ${darkColor};
+  background-color: lime;
   position: relative;
   /* display: flex; */
 
-  @media (min-width: 768px) {
+  @media (max-width: 767px) {
+    background-color: violet;
     padding: 0 8px;
     width: 25%;
   }
@@ -26,11 +28,11 @@ const Sidebar = styled.div`
 `;
 
 const RoutesBody = styled.div`
-  /* background-color: orange; */
+  background-color: orange;
   margin-top: 24px;
   padding: 0 8px;
   color: ${textoColor};
-  @media (min-width: 768px) {
+  @media (max-width: 767px) {
     width: 75%;
   }
 `;

@@ -10,24 +10,33 @@ import {
 
 const Container = styled.div`
   /* background-color: ${darkColor}; */
+  /* background-color: blue; */
   /* position: absolute; */
   /* flex-grow: 1; */
   display: block;
   width: 100%;
   /* height: 500px; */
   /* width: calc(100% - 16px); */
+  margin-top: -32px;
 
-  @media (min-width: 768px) {
-    margin-top: -32px;
+  @media (max-width: 767px) {
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    /* margin-bottom: 16px; */
+    align-items: center;
+
+    /* margin: 0 8px; */
     /* width: calc(100% - 32px); */
   }
-  @media (min-width: 1012px) {
-    /* margin-top: -32px; */
-    /* width: calc(100% - 32px); */
-  }
+  /* @media (min-width: 1012px) { */
+  /* margin-top: -32px; */
+  /* width: calc(100% - 32px); */
+  /* } */
 `;
 
 const Image = styled.div`
+  /* background-color: green; */
   img {
     aspect-ratio: 260 /260;
     border-radius: 50%;
@@ -38,6 +47,11 @@ const Image = styled.div`
     overflow: hidden;
     box-shadow: 0 0 0 1px ${shadowColor};
     border: 1px solid ${borderColor};
+  }
+  @media (max-width: 767px) {
+    width: 16.66667%;
+    /* margin-bottom: 24px; */
+    margin-right: 16px;
   }
 `;
 
@@ -56,6 +70,9 @@ const Body = styled.div`
       line-height: 1.25;
       overflow: hidden;
       margin-bottom: 5px;
+      @media (max-width: 767px) {
+        /* flex-grow: 1; */
+      }
     }
     .role {
       color: ${textoSecColor};
@@ -65,10 +82,17 @@ const Body = styled.div`
       font-weight: 300;
       line-height: 24px;
       /* background-color: fuchsia; */
+      @media (max-width: 767px) {
+        font-size: 20px;
+      }
+
       i {
         color: gold;
       }
     }
+  }
+  @media (max-width: 767px) {
+    flex-grow: 1;
   }
 `;
 

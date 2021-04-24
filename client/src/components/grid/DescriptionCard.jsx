@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { textoColor } from '../../global-styles';
 
 const Container = styled.div`
+  /* background-color: pink; */
   display: flex;
   flex-direction: column;
   color: ${textoColor};
@@ -11,9 +12,10 @@ const Container = styled.div`
     /* background-color: orangered; */
     margin-bottom: 16px;
     overflow: hidden;
-    font-size: 14px;
-    @media (min-width: 768px) {
-      font-size: 16px;
+    font-size: 16px;
+    @media (max-width: 767px) {
+      font-size: 14px;
+      margin-top: 8px;
     }
   }
   .country {

@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { darkColor, mediumColor } from '../../global-styles';
-import MainScreen from './MainScreen';
+// import MainScreen from './MainScreen';
 
 const Container = styled.div`
-  /* background-color: green; */
+  background-color: green;
   height: 100%;
   display: flex;
   flex-direction: column;
 `;
 
 const Header = styled.div`
-  /* background-color: gray; */
   background-color: ${mediumColor};
+  background-color: gray;
 
   height: 64px;
 
@@ -23,7 +23,7 @@ const Header = styled.div`
 
 const Main = styled.div`
   flex-grow: 1;
-  /* background-color: yellow; */
+  background-color: yellow;
   background-color: ${darkColor};
 `;
 
@@ -40,12 +40,11 @@ const TotalScreen = () => {
   return (
     <Container>
       <Header>header</Header>
-      <Main>
-        <MainScreen />
-      </Main>
-      <Footer>footes</Footer>
+      <Main />
+      <Footer>footer</Footer>
     </Container>
   );
 };
 
 export default TotalScreen;
+// {/* <MainScreen /> */}

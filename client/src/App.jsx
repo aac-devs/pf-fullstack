@@ -1,5 +1,6 @@
 import React from 'react';
-import { TotalScreen } from './components';
+import Viewport from './components/grid/Viewport';
+// import { TotalScreen } from './components';
 
 import { GlobalStyles } from './global-styles';
 // import AppRouter from './routes/app.routes';
@@ -8,10 +9,11 @@ const App = () => {
   return (
     <>
       <GlobalStyles />
-      <TotalScreen />
+      <Viewport />
       {/* <AppRouter /> */}
     </>
   );
 };
 
 export default App;
+// {/* <TotalScreen /> */}
