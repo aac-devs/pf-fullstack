@@ -1,6 +1,7 @@
 import React from 'react';
+import { IconContext } from 'react-icons';
 import styled from 'styled-components';
-import { darkColor } from '../../global-styles';
+import { darkColor, textoSecColor } from '../../global-styles';
 import Main from './Main';
 
 const Container = styled.div`
@@ -54,11 +55,22 @@ const Container = styled.div`
 const Viewport = () => {
   return (
     <Container>
-      <div className="viewport-header">Header</div>
-      <div className="viewport-main">
-        <Main />
-      </div>
-      <div className="viewport-footer">Footer</div>
+      {/* <IconContext.Provider value={{ color: { textoSecColor } }}> */}
+      <IconContext.Provider
+        value={{
+          style: {
+            verticalAlign: 'middle',
+            color: { textoSecColor },
+            size: '2rem',
+          },
+        }}
+      >
+        <div className="viewport-header">Header</div>
+        <div className="viewport-main">
+          <Main />
+        </div>
+        <div className="viewport-footer">Footer</div>
+      </IconContext.Provider>
     </Container>
   );
 };

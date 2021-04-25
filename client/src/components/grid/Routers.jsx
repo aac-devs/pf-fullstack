@@ -6,7 +6,7 @@ import Projects from '../views/Projects';
 import Skills from '../views/Skills';
 
 const Container = styled.div`
-  background-color: magenta;
+  /* background-color: magenta; */
   @media (max-width: 767px) {
     width: 100%;
   }

@@ -101,7 +101,7 @@ const InfoCard = () => {
     <Container>
       <Image>
         <img
-          src="github-image.jpeg"
+          src="https://res.cloudinary.com/aac-devs-data/image/upload/v1619362248/portfolio/github-image_iv3b80.jpg"
           style={{ height: 'auto' }}
           width="260"
           height="260"

@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+import { FaUserCog, FaWpforms } from 'react-icons/fa';
+// import { MdAlarm } from 'react-icons/md';
+import { GoProject } from 'react-icons/go';
 import styled from 'styled-components';
 import { textoColor, textoSecColor } from '../../global-styles';
 
@@ -40,6 +44,9 @@ const Tab = styled(Link)`
   border: 0;
   border-bottom: 2px solid transparent;
   transition: all 0.3s;
+  span {
+    /* background-color: deepskyblue; */
+  }
   &:hover {
     span {
       color: ${textoColor};
@@ -51,19 +58,21 @@ const Tab = styled(Link)`
   }
 `;
 
+// const Prj = styled(GoProject)``;
+
 const Tabs = () => {
   return (
     <Container>
       <Tab to="/projects">
-        <i className="fas fa-project-diagram" />
+        <GoProject size="18px" />
         <span>&nbsp;&nbsp;Projects</span>
       </Tab>
       <Tab to="/skills">
-        <i className="fas fa-user-cog" />
+        <FaUserCog size="18px" />
         <span>&nbsp;&nbsp;Skills</span>
       </Tab>
       <Tab to="/contact">
-        <i className="fab fa-wpforms" />
+        <FaWpforms size="18px" />
         <span>&nbsp;&nbsp;Contact</span>
       </Tab>
     </Container>
