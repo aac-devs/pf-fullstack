@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ImLocation } from 'react-icons/im';
+
 import { textoColor } from '../../global-styles';
 
 const Container = styled.div`
@@ -30,8 +32,9 @@ const DescriptionCard = () => {
     <Container>
       <div className="note">Always learning and ready for new challenges.</div>
       <div className="country">
-        <i className="fas fa-map-marker-alt" />
-        &nbsp;&nbsp;Argentina
+        {/* <i className="fas fa-map-marker-alt" /> */}
+        <ImLocation color="red" />
+        &nbsp;Argentina
       </div>
     </Container>
   );

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
-import Contact from '../views/Contact';
-import Projects from '../views/Projects';
-import Skills from '../views/Skills';
+import Contact from './Contact';
+import Projects from './Projects';
+import Skills from './Skills';
 
 const Container = styled.div`
   /* background-color: magenta; */

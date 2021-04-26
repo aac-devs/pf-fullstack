@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { SiJavascript } from 'react-icons/si';
 import {
   borderColor,
   darkColor,
@@ -85,10 +86,6 @@ const Body = styled.div`
       @media (max-width: 767px) {
         font-size: 20px;
       }
-
-      i {
-        color: gold;
-      }
     }
   }
   @media (max-width: 767px) {
@@ -112,7 +109,7 @@ const InfoCard = () => {
         <div className="head">
           <span className="name">Andrés Arana Castillo</span>
           <span className="role">
-            <i className="fab fa-js-square" />
+            <SiJavascript size="1rem" color="gold" />
             &nbsp;Fullstack Development
           </span>
         </div>

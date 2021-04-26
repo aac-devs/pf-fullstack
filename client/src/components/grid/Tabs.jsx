@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { FaUserCog, FaWpforms } from 'react-icons/fa';
 // import { MdAlarm } from 'react-icons/md';
@@ -28,9 +28,18 @@ const Container = styled.div`
   width: 75%;
   display: flex;
   justify-content: flex-start;
+
+  .active {
+    color: ${textoColor};
+    font-weight: 600;
+    border-bottom: 2px solid #f9826c;
+    &:hover {
+      border-bottom: 2px solid #f9826c;
+    }
+  }
 `;
 
-const Tab = styled(Link)`
+const Tab = styled(NavLink)`
   /* background-color: red; */
   /* height: 30px; */
   /* color: #fff; */
@@ -41,12 +50,15 @@ const Tab = styled(Link)`
   text-align: center;
   line-height: 30px;
   white-space: nowrap;
-  border: 0;
-  border-bottom: 2px solid transparent;
+  /* border: 0; */
+  /* border-bottom: 2px solid transparent; */
   transition: all 0.3s;
   span {
     /* background-color: deepskyblue; */
   }
+  /* &::before {
+    color: ${textoSecColor};
+  } */
   &:hover {
     span {
       color: ${textoColor};
@@ -63,16 +75,16 @@ const Tab = styled(Link)`
 const Tabs = () => {
   return (
     <Container>
-      <Tab to="/projects">
-        <GoProject size="18px" />
+      <Tab to="/projects" activeClassName="active" style={{ width: '112px' }}>
+        <GoProject size="18px" style={{ verticalAlign: 'middle' }} />
         <span>&nbsp;&nbsp;Projects</span>
       </Tab>
-      <Tab to="/skills">
-        <FaUserCog size="18px" />
+      <Tab to="/skills" activeClassName="active" style={{ width: '92px' }}>
+        <FaUserCog size="18px" style={{ verticalAlign: 'middle' }} />
         <span>&nbsp;&nbsp;Skills</span>
       </Tab>
-      <Tab to="/contact">
-        <FaWpforms size="18px" />
+      <Tab to="/contact" activeClassName="active" style={{ width: '110px' }}>
+        <FaWpforms size="18px" style={{ verticalAlign: 'middle' }} />
         <span>&nbsp;&nbsp;Contact</span>
       </Tab>
     </Container>

@@ -1,70 +1,50 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import 'tippy.js/themes/light.css';
+import styled from 'styled-components';
+import { borderColor, darkColor } from '../../global-styles';
 
-const SkillCard = () => {
+const Image = styled.div`
+  display: inline-block;
+  background-image: url(${(props) => props.url});
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  height: 70px;
+  width: 70px;
+  margin: 0 10px 10px 0;
+  transition: border 0.5s;
+  border: none;
+  &:hover {
+    border: 1px solid ${borderColor};
+    border-radius: 5px;
+  }
+`;
+
+const SkillCard = ({ name, image }) => {
   return (
-    <div style={{ paddingTop: '100px', paddingBottom: '20px' }}>
-      <Tippy placement="left" arrow={false} content="Basic Tooltip">
-        <button>Hover</button>
-      </Tippy>
-    </div>
+    <Tippy
+      interactiveBorder={20}
+      delay={100}
+      placement="top"
+      content={<span style={{ color: `${darkColor}` }}>{name}</span>}
+      theme="light"
+    >
+      <Image url={image} />
+    </Tippy>
   );
+};
+
+SkillCard.propTypes = {
+  name: PropTypes.string,
+  image: PropTypes.string,
+};
+
+SkillCard.defaultProps = {
+  name: 'skill name',
+  image: 'skill image',
 };
 
 export default SkillCard;
-
-/*
-import React, {forwardRef} from "react";
-import Tippy from "@tippyjs/react";
-import "tippy.js/dist/tippy.css";
-
-const ColoredTooltip = () => {
-  return (
-    <span style={{ color: "yellow" }}>
-      Colored component
-    </span>
-  );
-};
-
-const CustomChild = forwardRef((props, ref) => {
-  return(
-    <div ref={ref}>
-      <div>First line</div>
-      <div>Second line</div>
-    </div>
-  )
-})
-
-export default function Tooltip() {
-  return (
-    <div>
-      <div style={{ paddingTop: '100px', paddingBottom: "20px" }}>
-        <Tippy placement='left' arrow={false} content="Basic Tooltip">
-          <button>Hover</button>
-        </Tippy>
-      </div>
-
-      <div style={{ paddingBottom: "20px" }}>
-        <Tippy placement='top-end' delay={1000} content={<span style={{ color: "orange" }}>Colored</span>}>
-          <button>Hover</button>
-        </Tippy>
-      </div>
-
-      <div style={{ paddingBottom: "20px" }}>
-        <Tippy placement='right' content={<ColoredTooltip /> }>
-          <button>Hover</button>
-        </Tippy>
-      </div>
-
-      <div style={{ paddingBottom: "20px" }}>
-        <Tippy content={<ColoredTooltip /> }>
-          <CustomChild />
-        </Tippy>
-      </div>
-    </div>
-  );
-}
-
-
-*/

@@ -59,11 +59,12 @@ const Viewport = () => {
       <IconContext.Provider
         value={{
           style: {
-            verticalAlign: 'middle',
+            // verticalAlign: 'middle',
             color: { textoSecColor },
             size: '2rem',
           },
         }}
+        // theme="light"
       >
         <div className="viewport-header">Header</div>
         <div className="viewport-main">

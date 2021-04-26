@@ -9,6 +9,12 @@ export const borderColor = '#30363d';
 export const shadowColor = '#f0f6fc19';
 export const textoColor = '#c9d1d9';
 export const textoSecColor = '#8b949e';
+export const linkColor = '#58a6ff';
+export const inputBorderColor = '#21262d';
+export const inputFocusBorderColor = '#388bdf';
+export const buttonBackgroundColor = '#238636';
+export const buttonBorderColor = '#2ea043';
+export const buttonHoverColor = '#3eb053';
 
 export const ligthColor = '#eeeeee';
 export const orangeColor = '#ff5722';
@@ -105,6 +111,8 @@ body, html {
   }
 
 }
+
+
 
 
 `;
