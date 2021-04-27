@@ -5,24 +5,14 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/light.css';
 import 'tippy.js/themes/translucent.css';
-import 'tippy.js/themes/material.css';
-import 'tippy.js/themes/light-border.css';
 import { BiLinkExternal } from 'react-icons/bi';
 import { SiGithub } from 'react-icons/si';
-import {
-  ligthColor,
-  linkColor,
-  textoSecColor,
-  borderColor,
-  textoColor,
-  darkColor,
-} from '../../global-styles';
+import theme from '../../theme';
 
 const Container = styled.div``;
 
 const ProjectContainer = styled.div`
-  color: ${ligthColor};
-  border-bottom: 1px solid ${borderColor};
+  border-bottom: 1px solid ${theme.color.border.primary};
   padding: 24px 0;
   display: grid;
   grid-template-columns: 1fr 80px;
@@ -34,10 +24,10 @@ const ProjectContainer = styled.div`
   .project-title {
     grid-area: title;
     height: 30px;
+    color: ${theme.color.text.link};
     /* background-color: wheat; */
     font-size: 20px;
     font-weight: 600;
-    color: ${linkColor};
     margin-bottom: 4px;
     span {
       cursor: cell;
@@ -45,10 +35,10 @@ const ProjectContainer = styled.div`
   }
 
   .project-description {
+    color: ${theme.color.text.secondary};
     grid-area: description;
     /* background-color: lime; */
-    font-size: 12px;
-    color: ${textoSecColor};
+    font-size: 14px;
     margin-top: 8px;
   }
 
@@ -62,9 +52,12 @@ const ProjectContainer = styled.div`
 
     a {
       /* background-color: yellow; */
-      color: ${textoColor};
+      color: ${theme.color.icon.tertiary};
       margin-left: 10px;
-      /* cursor: pointer; */
+      transition: color 0.3s;
+      &:hover {
+        color: ${theme.color.icon.primary};
+      }
     }
   }
 `;
@@ -84,6 +77,7 @@ const ImageTooltip = ({ imageUrl }) => {
 };
 
 const ProjectCard = ({ name, description, image, appLink, githubLink }) => {
+  const darkTheme = true;
   return (
     <Container>
       <ProjectContainer>
@@ -92,7 +86,6 @@ const ProjectCard = ({ name, description, image, appLink, githubLink }) => {
             content={<ImageTooltip imageUrl={image} />}
             placement="right"
             arrow
-            // theme="light"
             theme="translucent"
           >
             <span>{name}</span>
@@ -105,8 +98,12 @@ const ProjectCard = ({ name, description, image, appLink, githubLink }) => {
             interactiveBorder={20}
             delay={100}
             placement="top"
-            content={<span style={{ color: `${darkColor}` }}>Open app</span>}
-            theme="light"
+            content={
+              <span style={{ color: `${theme.color.bg.primary}` }}>
+                Open app
+              </span>
+            }
+            theme={darkTheme && 'light'}
           >
             <a href={appLink}>
               <BiLinkExternal
@@ -122,17 +119,14 @@ const ProjectCard = ({ name, description, image, appLink, githubLink }) => {
             delay={100}
             placement="top"
             content={
-              <span style={{ color: `${darkColor}` }}>Open repository</span>
+              <span style={{ color: `${theme.color.bg.primary}` }}>
+                Open repository
+              </span>
             }
-            theme="light"
+            theme={darkTheme && 'light'}
           >
             <a href={githubLink}>
-              <SiGithub
-                size="1.3rem"
-                style={{
-                  verticalAlign: 'middle',
-                }}
-              />
+              <SiGithub size="1.3rem" style={{ verticalAlign: 'middle' }} />
             </a>
           </Tippy>
         </div>

@@ -1,30 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  darkColor,
-  ligthColor,
-  inputBorderColor,
-  mediumColor,
-  textoColor,
-  inputFocusBorderColor,
-  buttonBackgroundColor,
-  buttonBorderColor,
-  buttonHoverColor,
-} from '../../global-styles';
+import theme from '../../theme';
 
 const Container = styled.div`
   /* background-color: wheat; */
   padding: 10px;
 `;
-
 const Form = styled.form`
-  color: ${ligthColor};
-  background-color: ${mediumColor};
   padding: 20px;
   border-radius: 6px;
-  border: 1px solid ${inputBorderColor};
   max-width: 450px;
   margin: 0 auto;
+  background-color: ${theme.color.bg.tertiary};
+  border: 1px solid ${theme.color.border.secondary};
 
   label {
     display: block;
@@ -37,8 +25,8 @@ const Form = styled.form`
   input,
   textarea {
     display: block;
-    background-color: ${darkColor};
-    color: ${textoColor};
+    background-color: ${theme.color.input.bg};
+    color: ${theme.color.text.primary};
     width: 100%;
     margin-top: 5px;
     padding: 5px 12px;
@@ -46,16 +34,17 @@ const Form = styled.form`
     line-height: 20px;
     outline: none;
     border-radius: 6px;
-    border: 1px solid ${inputBorderColor};
+    border: 1px solid ${theme.color.input.border};
     &:focus {
-      border-color: ${inputFocusBorderColor};
-      box-shadow: 0 0 3px ${inputFocusBorderColor};
+      border-color: ${theme.color.input.focus_border};
+      box-shadow: 0 0 3px ${theme.color.input.focus_border};
     }
   }
 
   textarea {
     resize: none;
     height: 100px;
+    font-family: 'Open Sans', sans-serif;
   }
 
   button {
@@ -69,26 +58,25 @@ const Form = styled.form`
     line-height: 20px;
     cursor: pointer;
     font-weight: 600;
-    color: #fff;
-    border: 1px solid ${buttonBorderColor};
     border-radius: 6px;
-    background-color: ${buttonBackgroundColor};
     transition: all 0.4s;
+    box-shadow: ${theme.color.btn.shadow};
+    color: ${theme.color.btn.text};
+    background-color: ${theme.color.btn.bg};
+    border: 1px solid ${theme.color.btn.border};
     &:hover {
-      background-color: ${buttonHoverColor};
-      transform: scale(1.005);
+      border: 1px solid ${theme.color.btn.hover_border};
+      background-color: ${theme.color.btn.hover_bg};
     }
   }
 `;
 
 const Titles = styled.div`
   /* background-color: red; */
-  color: ${textoColor};
-  /* margin: 20px; */
   margin-bottom: 10px;
-  /* padding-left: 20px; */
   text-align: center;
   font-size: 24px;
+  font-weight: 300;
 `;
 
 const Contact = () => {

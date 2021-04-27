@@ -1,27 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
 import { FaUserCog, FaWpforms } from 'react-icons/fa';
-// import { MdAlarm } from 'react-icons/md';
 import { GoProject } from 'react-icons/go';
 import styled from 'styled-components';
-import { textoColor, textoSecColor } from '../../global-styles';
-
-/*
-Projects:
-<i class="fas fa-project-diagram"></i>
-Rayo:
-<i class="fas fa-bolt"></i>
-Github:
-<i class="fab fa-github"></i>
-Linkedin
-<i class="fab fa-linkedin"></i>
-<i class="fab fa-linkedin-in"></i>
-Forms:
-<i class="fab fa-wpforms"></i>
-Tools:
-<i class="fas fa-user-cog"></i>
-*/
+import theme from '../../theme';
 
 const Container = styled.div`
   /* background-color: springgreen; */
@@ -30,47 +12,47 @@ const Container = styled.div`
   justify-content: flex-start;
 
   .active {
-    color: ${textoColor};
     font-weight: 600;
-    border-bottom: 2px solid #f9826c;
+    /* border-bottom: 1px solid #f9826c; */
+    color: ${theme.color.text.primary};
+    border-bottom: 1px solid ${theme.color.bg.canvas};
+    @media (min-width: 544px) {
+      border-bottom: 1px solid ${theme.color.bg.primary};
+    }
+
     &:hover {
-      border-bottom: 2px solid #f9826c;
+      color: ${theme.color.text.primary};
+      /* border-bottom: 2px solid #f9826c; */
     }
   }
 `;
 
 const Tab = styled(NavLink)`
   /* background-color: red; */
-  /* height: 30px; */
-  /* color: #fff; */
-  color: ${textoSecColor};
+  color: ${theme.color.text.tertiary};
   text-decoration: none;
   font-size: 14px;
   padding: 8px 16px;
   text-align: center;
   line-height: 30px;
   white-space: nowrap;
-  /* border: 0; */
-  /* border-bottom: 2px solid transparent; */
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border: 1px solid ${theme.color.border.primary};
   transition: all 0.3s;
+  margin-right: 5px;
   span {
     /* background-color: deepskyblue; */
   }
-  /* &::before {
-    color: ${textoSecColor};
-  } */
   &:hover {
     span {
-      color: ${textoColor};
+      color: ${theme.color.text.primary};
     }
-    border-bottom: 2px solid ${textoColor};
   }
   i {
     /* background-color: lime; */
   }
 `;
-
-// const Prj = styled(GoProject)``;
 
 const Tabs = () => {
   return (

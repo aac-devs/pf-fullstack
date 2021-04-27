@@ -4,7 +4,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/light.css';
 import styled from 'styled-components';
-import { borderColor, darkColor } from '../../global-styles';
+import theme from '../../theme';
 
 const Image = styled.div`
   display: inline-block;
@@ -18,19 +18,22 @@ const Image = styled.div`
   transition: border 0.5s;
   border: none;
   &:hover {
-    border: 1px solid ${borderColor};
     border-radius: 5px;
   }
 `;
 
 const SkillCard = ({ name, image }) => {
+  const darkTheme = true;
+
   return (
     <Tippy
       interactiveBorder={20}
       delay={100}
       placement="top"
-      content={<span style={{ color: `${darkColor}` }}>{name}</span>}
-      theme="light"
+      content={
+        <span style={{ color: `${theme.color.bg.primary}` }}>{name}</span>
+      }
+      theme={darkTheme && 'light'}
     >
       <Image url={image} />
     </Tippy>

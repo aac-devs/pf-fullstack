@@ -1,20 +1,22 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import theme from './theme';
+// import theme from './theme';
 
 // rgba(240, 246, 252, 0.1)
 // rgba(f0, f6, fc, 0.1)
 
-export const darkColor = '#0d1117';
-export const mediumColor = '#161b22';
-export const borderColor = '#30363d';
-export const shadowColor = '#f0f6fc19';
-export const textoColor = '#c9d1d9';
-export const textoSecColor = '#8b949e';
-export const linkColor = '#58a6ff';
-export const inputBorderColor = '#21262d';
-export const inputFocusBorderColor = '#388bdf';
-export const buttonBackgroundColor = '#238636';
-export const buttonBorderColor = '#2ea043';
-export const buttonHoverColor = '#3eb053';
+// export const darkColor = '#0d1117';
+// export const mediumColor = '#161b22';
+// export const borderColor = '#30363d';
+// export const shadowColor = '#f0f6fc19';
+// export const textoColor = '#c9d1d9';
+// export const textoSecColor = '#8b949e';
+// export const linkColor = '#58a6ff';
+// export const inputBorderColor = '#21262d';
+// export const inputFocusBorderColor = '#388bdf';
+// export const buttonBackgroundColor = '#238636';
+// export const buttonBorderColor = '#2ea043';
+// export const buttonHoverColor = '#3eb053';
 
 export const ligthColor = '#eeeeee';
 export const orangeColor = '#ff5722';
@@ -71,13 +73,13 @@ body, html {
   height: 100%;
   margin: 0;
   padding: 0;
-  /* font-family: 'Roboto', sans-serif, Helvetica, Arial; */
-  /* font-family: 'Quicksand', sans-serif, Helvetica, Arial ; */
   font-family: 'Open Sans', sans-serif;
   background-attachment: fixed;
-  background-color: ${darkColor};
-
-  /* background-color: yellow; */
+  color: ${theme.color.text.primary};
+  background-color: ${theme.color.bg.canvas};
+  @media (min-width: 544px) {
+    background-color: ${theme.color.bg.primary};
+  }
 }
 
 #root{
@@ -86,7 +88,7 @@ body, html {
   display: flex;
   flex-direction: column;
   /* height: 100%; */
-  background-color: pink;
+  /* background-color: pink; */
 }
 
 .selected{
@@ -116,3 +118,6 @@ body, html {
 
 
 `;
+
+// background-color: ${theme.color.dark.background.strong};
+/* background-color: ${darkColor}; */

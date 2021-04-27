@@ -6,7 +6,7 @@ const Projects = () => {
     <>
       <ProjectCard
         name="Videogames-app"
-        description="..."
+        description="Este proyecto fue creado con mucha energía..."
         image="https://res.cloudinary.com/aac-devs-data/image/upload/v1618768943/VideoGames/ny8phfrkafw9xurlu3ud.jpg"
       />
       <ProjectCard

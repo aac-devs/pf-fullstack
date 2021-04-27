@@ -1,16 +1,15 @@
 import React from 'react';
 import { HashRouter as Router } from 'react-router-dom';
 import styled from 'styled-components';
-import { borderColor } from '../../global-styles';
 import DescriptionCard from './DescriptionCard';
 import InfoCard from './InfoCard';
 import Tabs from './Tabs';
 import Routers from './Routers';
+import theme from '../../theme';
 
 const Container = styled.div`
   margin-right: -8px;
   margin-left: -8px;
-  /* margin-top: 24px; */
   /* background-color: cyan; */
   display: grid;
   grid-template-columns: 6% 22% 66% 6%;
@@ -31,28 +30,23 @@ const Container = styled.div`
     margin-left: 0;
     margin-top: 8px;
   }
-
   .left-side {
-    border-bottom: 1px solid ${borderColor};
+    border-bottom: 1px solid ${theme.color.border.primary};
   }
   .right-side {
-    border-bottom: 1px solid ${borderColor};
+    border-bottom: 1px solid ${theme.color.border.primary};
   }
-
   .empty {
     grid-area: empty;
-    border-bottom: 1px solid ${borderColor};
-
+    border-bottom: 1px solid ${theme.color.border.primary};
     /* background-color: #fff; */
   }
   .main-header {
     grid-area: header;
-    border-bottom: 1px solid ${borderColor};
     padding-left: 16px;
-
+    height: 48px;
     /* background-color: purple; */
-    /* background-color: orangered; */
-    /* max-width: 1280px; */
+    border-bottom: 1px solid ${theme.color.border.primary};
     @media (max-width: 767px) {
       margin-top: 16px;
       padding-left: 0;
@@ -62,7 +56,6 @@ const Container = styled.div`
     grid-area: sidebar;
     /* background-color: lime; */
     @media (min-width: 1012px) {
-      /* padding: 0 16px; */
     }
   }
   .main-routes {
