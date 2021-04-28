@@ -70,7 +70,7 @@ const Tabs = () => {
     <Container>
       <Tab to="/projects" activeClassName="active" style={{ width: '134px' }}>
         <GoProject size="18px" style={{ verticalAlign: 'middle' }} />
-        <span>&nbsp;&nbsp;Experience</span>
+        <span>&nbsp;&nbsp;Projects</span>
       </Tab>
       <Tab to="/skills" activeClassName="active" style={{ width: '92px' }}>
         <FaUserCog size="18px" style={{ verticalAlign: 'middle' }} />

@@ -1,11 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ligthColor } from '../../global-styles';
 
 const Container = styled.div`
-  color: ${ligthColor};
-  font-size: 18px;
-  /* background-color: yellow; */
+  font-size: 12px;
 `;
 
 const Footer = () => {

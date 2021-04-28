@@ -2,6 +2,7 @@ import React from 'react';
 import { IconContext } from 'react-icons';
 import styled from 'styled-components';
 import theme from '../../theme';
+import Footer from './Footer';
 import Main from './Main';
 import Navbar from './Navbar';
 
@@ -58,7 +59,9 @@ const Viewport = () => {
         <div className="viewport-main">
           <Main />
         </div>
-        <div className="viewport-footer">Footer</div>
+        <div className="viewport-footer">
+          <Footer />
+        </div>
       </IconContext.Provider>
     </Container>
   );

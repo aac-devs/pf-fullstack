@@ -37,7 +37,7 @@ const Titles = styled.div`
 const Projects = () => {
   return (
     <>
-      <Titles>Web Development Projects</Titles>
+      <Titles>Web development</Titles>
 
       <ProjectCard
         name="Videogames-app"
@@ -63,7 +63,7 @@ const Projects = () => {
         linkTooltipText="app"
         githubLink="link"
       />
-      <Titles>Electronic Development Projects</Titles>
+      <Titles>Electronic development</Titles>
       <ProjectCard
         name="Other-app"
         description="..."

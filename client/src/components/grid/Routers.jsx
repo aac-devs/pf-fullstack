@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import Contact from './Contact';
 import Projects from './Projects';
@@ -20,6 +20,7 @@ const Routers = () => {
         <Route exact path="/projects" component={Projects} />
         <Route exact path="/skills" component={Skills} />
         <Route exact path="/contact" component={Contact} />
+        <Redirect to="/projects" />
       </Switch>
     </Container>
   );
