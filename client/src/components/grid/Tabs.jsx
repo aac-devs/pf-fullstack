@@ -10,19 +10,22 @@ const Container = styled.div`
   width: 75%;
   display: flex;
   justify-content: flex-start;
+  /* justify-content: center; */
 
   .active {
     font-weight: 600;
-    /* border-bottom: 1px solid #f9826c; */
+    border-bottom: 2px solid #f9826c;
     color: ${theme.color.text.primary};
-    border-bottom: 1px solid ${theme.color.bg.canvas};
+    /* border-bottom: 1px solid ${theme.color.bg.canvas}; */
+    /* border-bottom: 1px solid #fff; */
     @media (min-width: 544px) {
-      border-bottom: 1px solid ${theme.color.bg.primary};
+      /* border-bottom: 1px solid ${theme.color.bg.primary}; */
+      /* border-bottom: 1px solid ${theme.color.bg.primary}; */
     }
 
     &:hover {
       color: ${theme.color.text.primary};
-      /* border-bottom: 2px solid #f9826c; */
+      border-bottom: 2px solid #f9826c;
     }
   }
 `;
@@ -30,21 +33,29 @@ const Container = styled.div`
 const Tab = styled(NavLink)`
   /* background-color: red; */
   color: ${theme.color.text.tertiary};
+  /* background-color: ${theme.color.bg.secondary}; */
+  height: 48px;
+
   text-decoration: none;
   font-size: 14px;
-  padding: 8px 16px;
+  padding: 8px 8px;
   text-align: center;
   line-height: 30px;
   white-space: nowrap;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-  border: 1px solid ${theme.color.border.primary};
+  /* border: 1px solid ${theme.color.border.primary}; */
   transition: all 0.3s;
-  margin-right: 5px;
+  /* margin-right: 5px; */
+  @media (min-width: 544px) {
+    padding: 8px 12px;
+  }
   span {
     /* background-color: deepskyblue; */
   }
   &:hover {
+    border-bottom: 2px solid ${theme.color.text.primary};
+
     span {
       color: ${theme.color.text.primary};
     }
@@ -57,9 +68,9 @@ const Tab = styled(NavLink)`
 const Tabs = () => {
   return (
     <Container>
-      <Tab to="/projects" activeClassName="active" style={{ width: '112px' }}>
+      <Tab to="/projects" activeClassName="active" style={{ width: '134px' }}>
         <GoProject size="18px" style={{ verticalAlign: 'middle' }} />
-        <span>&nbsp;&nbsp;Projects</span>
+        <span>&nbsp;&nbsp;Experience</span>
       </Tab>
       <Tab to="/skills" activeClassName="active" style={{ width: '92px' }}>
         <FaUserCog size="18px" style={{ verticalAlign: 'middle' }} />

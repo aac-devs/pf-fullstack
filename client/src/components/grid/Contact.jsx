@@ -3,8 +3,12 @@ import styled from 'styled-components';
 import theme from '../../theme';
 
 const Container = styled.div`
+  margin-top: 10px;
   /* background-color: wheat; */
-  padding: 10px;
+
+  @media (min-width: 768px) {
+    margin-top: 20px;
+  }
 `;
 const Form = styled.form`
   padding: 20px;
@@ -71,18 +75,44 @@ const Form = styled.form`
   }
 `;
 
-const Titles = styled.div`
-  /* background-color: red; */
-  margin-bottom: 10px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: 300;
-`;
+// const Titles = styled.div`
+//   /* background-color: red; */
+//   /* margin-bottom: 10px;
+//   font-size: 24px;
+//   font-weight: 300; */
+//   text-align: center;
+//   margin-top: 10px;
+//   margin-bottom: 10px;
+//   /* padding-bottom: 8px; */
+//   padding-left: 20px;
+//   font-size: 20px;
+//   font-weight: 300;
+//   @media (min-width: 544px) {
+//     /* background-color: yellow; */
+//     /* padding-left: 20px; */
+//     margin-top: 20px;
+//     font-size: 24px;
+//   }
+//   @media (min-width: 768px) {
+//     /* background-color: dodgerblue; */
+//     /* padding-left: 20px; */
+//     margin-top: 20px;
+//     font-size: 17px;
+//     /* text-align: center; */
+//   }
+//   @media (min-width: 1024px) {
+//     /* background-color: orangered; */
+//     margin-top: 30px;
+//     /* padding-left: 20px; */
+//     font-size: 24px;
+//     /* text-align: center; */
+//   }
+// `;
 
 const Contact = () => {
   return (
     <Container>
-      <Titles>Contact</Titles>
+      {/* <Titles>Contact</Titles> */}
       <Form id="contact-form">
         <label htmlFor="contact-name">
           Name:

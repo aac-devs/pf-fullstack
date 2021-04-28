@@ -22,17 +22,40 @@ import SkillCard from './SkillCard';
 
 const Container = styled.div`
   /* background-color: wheat; */
-  padding-top: 20px;
+  /* padding-top: 20px; */
 `;
 
 const Titles = styled.div`
   /* background-color: red; */
+  margin-top: 10px;
   margin-bottom: 10px;
-  padding-bottom: 8px;
-  padding-left: 20px;
-  font-size: 24px;
+  /* padding-bottom: 8px; */
+  padding-left: 0px;
+  font-size: 20px;
   font-weight: 300;
-  border-bottom: 1px solid ${theme.color.border.primary};
+  padding-bottom: 8px;
+  border-bottom: 1px solid ${theme.color.border.secondary};
+
+  @media (min-width: 544px) {
+    /* background-color: yellow; */
+    padding-left: 20px;
+    margin-top: 20px;
+    font-size: 24px;
+  }
+  @media (min-width: 768px) {
+    /* background-color: dodgerblue; */
+    padding-left: 20px;
+    margin-top: 20px;
+    font-size: 17px;
+    /* text-align: center; */
+  }
+  @media (min-width: 1024px) {
+    /* background-color: orangered; */
+    margin-top: 30px;
+    padding-left: 20px;
+    font-size: 24px;
+    /* text-align: center; */
+  }
 `;
 
 const skillCategories = [

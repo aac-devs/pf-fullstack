@@ -12,7 +12,7 @@ const Container = styled.div`
   margin-left: -8px;
   /* background-color: cyan; */
   display: grid;
-  grid-template-columns: 6% 22% 66% 6%;
+  grid-template-columns: 5% 25% 65% 5%;
   grid-template-rows: 48px 1fr;
   grid-template-areas:
     'left-side empty header right-side'
@@ -44,7 +44,7 @@ const Container = styled.div`
   .main-header {
     grid-area: header;
     padding-left: 16px;
-    height: 48px;
+    /* height: 48px; */
     /* background-color: purple; */
     border-bottom: 1px solid ${theme.color.border.primary};
     @media (max-width: 767px) {
@@ -61,7 +61,7 @@ const Container = styled.div`
   .main-routes {
     grid-area: routes;
     /* background-color: orange; */
-    padding: 8px 0 8px 24px;
+    padding: 0 0 8px 24px;
     @media (max-width: 767px) {
       padding: 8px 0;
     }

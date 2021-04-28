@@ -12,8 +12,14 @@ import theme from '../../theme';
 const Container = styled.div``;
 
 const ProjectContainer = styled.div`
-  border-bottom: 1px solid ${theme.color.border.primary};
-  padding: 24px 0;
+  /* border-bottom: 1px solid ${theme.color.border.primary}; */
+  border: 1px solid ${theme.color.border.secondary};
+  background-color: ${theme.color.bg.tertiary};
+  margin-bottom: 15px;
+  border-radius: 6px;
+  /* padding: 0 10px; */
+
+  padding: 15px;
   display: grid;
   grid-template-columns: 1fr 80px;
   grid-template-rows: repeat(2, auto);
@@ -76,8 +82,16 @@ const ImageTooltip = ({ imageUrl }) => {
   return <Image url={imageUrl} />;
 };
 
-const ProjectCard = ({ name, description, image, appLink, githubLink }) => {
-  const darkTheme = true;
+const ProjectCard = ({
+  name,
+  description,
+  image,
+  appLink,
+  linkTooltipText,
+  githubLink,
+}) => {
+  const darkTheme = false;
+  console.log(githubLink);
   return (
     <Container>
       <ProjectContainer>
@@ -94,41 +108,45 @@ const ProjectCard = ({ name, description, image, appLink, githubLink }) => {
 
         <div className="project-description">{description}</div>
         <div className="project-links">
-          <Tippy
-            interactiveBorder={20}
-            delay={100}
-            placement="top"
-            content={
-              <span style={{ color: `${theme.color.bg.primary}` }}>
-                Open app
-              </span>
-            }
-            theme={darkTheme && 'light'}
-          >
-            <a href={appLink}>
-              <BiLinkExternal
-                size="1.5rem"
-                style={{
-                  verticalAlign: 'middle',
-                }}
-              />
-            </a>
-          </Tippy>
-          <Tippy
-            interactiveBorder={20}
-            delay={100}
-            placement="top"
-            content={
-              <span style={{ color: `${theme.color.bg.primary}` }}>
-                Open repository
-              </span>
-            }
-            theme={darkTheme && 'light'}
-          >
-            <a href={githubLink}>
-              <SiGithub size="1.3rem" style={{ verticalAlign: 'middle' }} />
-            </a>
-          </Tippy>
+          {appLink !== '' && (
+            <Tippy
+              interactiveBorder={20}
+              delay={100}
+              placement="top"
+              content={
+                <span style={{ color: `${theme.color.bg.primary}` }}>
+                  Open {linkTooltipText}
+                </span>
+              }
+              theme={darkTheme && 'light'}
+            >
+              <a href={appLink}>
+                <BiLinkExternal
+                  size="1.5rem"
+                  style={{
+                    verticalAlign: 'middle',
+                  }}
+                />
+              </a>
+            </Tippy>
+          )}
+          {githubLink !== '' && (
+            <Tippy
+              interactiveBorder={20}
+              delay={100}
+              placement="top"
+              content={
+                <span style={{ color: `${theme.color.bg.primary}` }}>
+                  Open repository
+                </span>
+              }
+              theme={darkTheme && 'light'}
+            >
+              <a href={githubLink}>
+                <SiGithub size="1.3rem" style={{ verticalAlign: 'middle' }} />
+              </a>
+            </Tippy>
+          )}
         </div>
       </ProjectContainer>
     </Container>
@@ -140,6 +158,7 @@ ProjectCard.propTypes = {
   description: PropTypes.string,
   image: PropTypes.string,
   appLink: PropTypes.string,
+  linkTooltipText: PropTypes.string,
   githubLink: PropTypes.string,
 };
 
@@ -148,8 +167,9 @@ ProjectCard.defaultProps = {
   description: 'project description',
   image:
     'https://res.cloudinary.com/aac-devs-data/image/upload/v1619410092/portfolio/no-image_tmxdyx.jpg',
-  appLink: '/',
-  githubLink: '/',
+  appLink: '',
+  linkTooltipText: '',
+  githubLink: '',
 };
 
 ImageTooltip.propTypes = {

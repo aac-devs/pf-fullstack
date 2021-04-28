@@ -3,6 +3,7 @@ import { IconContext } from 'react-icons';
 import styled from 'styled-components';
 import theme from '../../theme';
 import Main from './Main';
+import Navbar from './Navbar';
 
 const Container = styled.div`
   /* background-color: #fff; */
@@ -16,10 +17,10 @@ const Container = styled.div`
     height: 64px;
     min-height: 64px;
 
-    @media (min-width: 768px) {
+    /* @media (min-width: 768px) {
       height: 62px;
       min-height: 62px;
-    }
+    } */
   }
   .viewport-main {
     /* background-color: yellow; */
@@ -51,7 +52,9 @@ const Viewport = () => {
           },
         }}
       >
-        <div className="viewport-header">Header</div>
+        <div className="viewport-header">
+          <Navbar />
+        </div>
         <div className="viewport-main">
           <Main />
         </div>

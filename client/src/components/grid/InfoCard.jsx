@@ -5,19 +5,27 @@ import theme from '../../theme';
 
 const Container = styled.div`
   /* background-color: blue; */
-  display: block;
-  width: 100%;
-  margin-top: -32px;
-
-  @media (max-width: 767px) {
-    margin-top: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  /* text-align: center; */
+  /* padding-left: 10px; */
+  margin-top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: flex-start; */
+  justify-content: center;
+  @media (min-width: 340px) {
+    /* padding-left: 20px; */
+  }
+  /* padding-left */
+  @media (min-width: 768px) {
+    display: block;
+    width: 100%;
+    margin-top: -32px;
   }
 `;
 
 const Image = styled.div`
+  /* background-color: #fff; */
   img {
     border: 1px solid ${theme.color.border.primary};
     box-shadow: 0 1px 0 ${theme.color.shadow.small};
@@ -29,9 +37,11 @@ const Image = styled.div`
     display: inline-block;
     overflow: hidden;
   }
-  @media (max-width: 767px) {
-    width: 16.66667%;
-    margin-right: 16px;
+  width: 16.66667%;
+  margin-right: 16px;
+  @media (min-width: 768px) {
+    width: 100%;
+    margin-right: 0;
   }
 `;
 
@@ -42,30 +52,63 @@ const Body = styled.div`
     line-height: 1;
     .name {
       /* background-color: springgreen; */
-      font-size: 26px;
+      /* font-size: 26px; */
       display: block;
-      font-size: 26px;
+      font-size: 23px;
       font-weight: 400;
       line-height: 1.25;
       overflow: hidden;
       margin-bottom: 5px;
-      @media (max-width: 767px) {
+      /* text-align: center; */
+      @media (min-width: 544px) {
+        /* background-color: yellow; */
+        font-size: 26px;
       }
+      @media (min-width: 768px) {
+        /* background-color: dodgerblue; */
+        font-size: 19px;
+        text-align: center;
+      }
+      @media (min-width: 1024px) {
+        /* background-color: orangered; */
+        font-size: 26px;
+        text-align: center;
+      }
+      /* @media (min-width: 1024px) {
+        background-color: springgreen;
+        font-size: 26px;
+      } */
     }
     .role {
       display: block;
-      font-size: 18px;
+      font-size: 20px;
       font-style: normal;
       font-weight: 300;
       line-height: 24px;
+      /* background-color: springgreen; */
+
       /* background-color: fuchsia; */
-      @media (max-width: 767px) {
-        font-size: 20px;
+      /* @media (min-width: 768px) {
+        font-size: 18px;
+      } */
+      @media (min-width: 544px) {
+        /* background-color: yellow; */
+        font-size: 23px;
+      }
+      @media (min-width: 768px) {
+        /* background-color: dodgerblue; */
+        font-size: 16px;
+        text-align: center;
+      }
+      @media (min-width: 1024px) {
+        /* background-color: orangered; */
+        font-size: 23px;
+        text-align: center;
       }
     }
   }
   @media (max-width: 767px) {
-    flex-grow: 1;
+    /* flex-grow: 1; */
   }
 `;
 
