@@ -42,23 +42,17 @@ const initialState = {
     },
   },
   routes: {
-    projects: '',
-    skills: '',
-    contact: '',
+    labels: {
+      projects: '',
+      skills: '',
+      contact: '',
+    },
   },
   navbar: {
     tooltips: {
       mode: '',
       language: '',
     },
-  },
-  projects: {
-    categories: [], // web \ electronic
-    list: [projectData],
-  },
-  skills: {
-    categories: [], // programming langueage | web tech
-    list: [skillData],
   },
   contact: {
     labels: {
@@ -71,6 +65,15 @@ const initialState = {
   },
   footer: '',
 };
+
+// projects: {
+//   categories: [], // web \ electronic
+//   list: [projectData],
+// },
+// skills: {
+//   categories: [], // programming langueage | web tech
+//   list: [skillData],
+// },
 
 const dataReducer = (state = initialState, action) => {
   switch (action.type) {

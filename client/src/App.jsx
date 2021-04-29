@@ -1,19 +1,16 @@
 import React from 'react';
-import Viewport from './components/grid/Viewport';
-// import { TotalScreen } from './components';
-
-import { GlobalStyles } from './global-styles';
-// import AppRouter from './routes/app.routes';
+import { Provider } from 'react-redux';
+import store from './store/store';
+import Viewport from './components/Viewport';
+import GlobalStyles from './global-styles';
 
 const App = () => {
   return (
-    <>
+    <Provider store={store}>
       <GlobalStyles />
       <Viewport />
-      {/* <AppRouter /> */}
-    </>
+    </Provider>
   );
 };
 
 export default App;
-// {/* <TotalScreen /> */}
