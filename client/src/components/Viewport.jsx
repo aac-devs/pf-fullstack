@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled, { ThemeProvider } from 'styled-components';
 import { IconContext } from 'react-icons';
 import Footer from './Footer';
@@ -7,6 +8,13 @@ import Main from './main/Main';
 import Navbar from './Navbar';
 import lightTheme from '../light-theme';
 import darkTheme from '../dark-theme';
+import startReadingData from '../actions/data.actions';
+import {
+  changeToDarkMode,
+  changeToEnglish,
+  changeToLightMode,
+  changeToSpanish,
+} from '../actions/ui.actions';
 
 const Container = styled.div`
   height: 100%;
@@ -34,6 +42,7 @@ const Container = styled.div`
 `;
 
 const Viewport = () => {
+  const dispatch = useDispatch();
   const { mode } = useSelector((state) => state.ui);
   useEffect(() => {
     const root = window.document.getElementById('root');
@@ -48,6 +57,24 @@ const Viewport = () => {
     root.style.backgroundColor = bg;
     root.style.color = color;
   }, [mode]);
+
+  useEffect(() => {
+    const localMode = localStorage.getItem('mode');
+    if (!localMode) {
+      localStorage.setItem('mode', 'light');
+      dispatch(changeToLightMode());
+    } else {
+      dispatch(localMode === 'dark' ? changeToDarkMode() : changeToLightMode());
+    }
+    const localLanguage = localStorage.getItem('language');
+    if (!localLanguage) {
+      localStorage.setItem('language', 'eng');
+      dispatch(changeToEnglish());
+    } else {
+      dispatch(localLanguage === 'eng' ? changeToEnglish() : changeToSpanish());
+    }
+    dispatch(startReadingData());
+  }, []);
 
   return (
     <ThemeProvider theme={mode === 'dark' ? darkTheme : lightTheme}>

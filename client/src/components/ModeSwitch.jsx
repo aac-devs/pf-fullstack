@@ -62,8 +62,10 @@ const ModeSwitch = () => {
   const handleChangeMode = () => {
     if (mode === 'dark') {
       dispatch(changeToLightMode());
+      localStorage.setItem('mode', 'light');
     } else {
       dispatch(changeToDarkMode());
+      localStorage.setItem('mode', 'dark');
     }
   };
 

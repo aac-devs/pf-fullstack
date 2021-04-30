@@ -1,25 +1,20 @@
-import React from 'react';
-// import {
-//   SiPostgresql,
-//   SiRedux,
-//   SiJavascript,
-//   SiMongodb,
-//   SiStyledComponents,
-//   SiReact,
-//   SiC,
-//   SiJest,
-//   SiLinkedin,
-//   SiNodeDotJs,
-//   SiPostman,
-//   SiTypescript,
-//   SiWebpack,
-// } from 'react-icons/si';
-// import { IoLogoNodejs } from 'react-icons/io';
-// import { DiPostgresql, DiCss3Full, DiGit, DiGithubBadge } from 'react-icons/di';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import SkillCard from './SkillCard';
 
-const Container = styled.div``;
+const Container = styled.div`
+  padding-top: 10px;
+  @media (min-width: 544px) {
+    padding-top: 20px;
+  }
+  @media (min-width: 768px) {
+    padding-top: 20px;
+  }
+  @media (min-width: 1024px) {
+    padding-top: 30px;
+  }
+`;
 
 const Titles = styled.div`
   margin-top: 10px;
@@ -31,61 +26,47 @@ const Titles = styled.div`
   border-bottom: 1px solid ${(props) => props.theme.color.border.secondary};
   @media (min-width: 544px) {
     padding-left: 20px;
-    margin-top: 20px;
     font-size: 24px;
   }
   @media (min-width: 768px) {
     padding-left: 20px;
-    margin-top: 20px;
     font-size: 17px;
   }
   @media (min-width: 1024px) {
-    margin-top: 30px;
-    padding-left: 20px;
     font-size: 24px;
   }
 `;
 
-const skillCategories = [
-  {
-    id: 1,
-    name: { eng: 'Programming Language', esp: 'Lenguaje de Programación' },
-  },
-  {
-    id: 2,
-    name: { eng: 'Web Technologies', esp: 'Tecnologías Web' },
-  },
-  {
-    id: 3,
-    name: { eng: 'Databases', esp: 'Bases de datos' },
-  },
-];
-
-const skills = [
-  {
-    id: 1,
-    categoryId: 1,
-    name: 'JavaScript',
-    image:
-      'https://res.cloudinary.com/aac-devs-data/image/upload/v1619359391/portfolio/javascript_ieaf2h.png',
-  },
-  {
-    id: 2,
-    categoryId: 2,
-    name: 'CSS',
-    image:
-      'https://res.cloudinary.com/aac-devs-data/image/upload/v1619358722/portfolio/css_dykwnz.png',
-  },
-];
-
 const Skills = () => {
+  const {
+    skillCategories: { data: categories },
+    skills: { data: skills },
+  } = useSelector((state) => state.data);
+  const { language: lang } = useSelector((state) => state.ui);
+  const [renderArray, setRenderArray] = useState([]);
+
+  useEffect(() => {
+    if (categories?.length > 0 && skills?.length > 0) {
+      let components = [];
+      categories.forEach((e) => {
+        components.push(
+          <Titles key={e.id}>
+            {lang === 'eng' ? e.name_eng : e.name_esp}
+          </Titles>,
+        );
+        const skls = skills.filter((s) => s.category === e.name_eng);
+        const cards = skls.map((s) => (
+          <SkillCard key={s.id} name={s.name} image={s.image} />
+        ));
+        components = [...components, ...cards];
+      });
+      setRenderArray(components);
+    }
+  }, [categories, skills, lang]);
+
   return (
     <Container>
-      <Titles>{skillCategories[0].name.eng}</Titles>
-      <SkillCard name={skills[0].name} image={skills[0].image} />
-      <SkillCard name={skills[1].name} image={skills[1].image} />
-      <Titles>{skillCategories[1].name.eng}</Titles>
-      <SkillCard name={skills[1].name} image={skills[1].image} />
+      {renderArray && renderArray.length > 0 && renderArray.map((a) => a)}
     </Container>
   );
 };

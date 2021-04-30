@@ -27,6 +27,7 @@ module.exports = {
       secondary: '#fafbfc',
       tertiary: '#f6f8fa',
       canvas: '#fff',
+      skill: '#f6f8fa',
     },
     shadow: {
       // small: '0 1px 0 rgba(27,31,35,0.04)',

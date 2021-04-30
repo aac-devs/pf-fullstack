@@ -7,8 +7,8 @@ import Tabs from './Tabs';
 import Routers from './Routers';
 
 const Container = styled.div`
-  margin-right: -8px;
-  margin-left: -8px;
+  margin-right: 0px;
+  margin-left: 0px;
   display: grid;
   grid-template-columns: 5% 25% 65% 5%;
   grid-template-rows: 48px 1fr;

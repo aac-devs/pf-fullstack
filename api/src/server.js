@@ -2,10 +2,9 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-const portFolioRoutes = require('./routes/portfolio.routes');
-// const { sequelize } = require('./database/db');
-// const gamesRoute = require('./routes/games.routes');
-// const populateRoute = require('./routes/populate.routes');
+const { sequelize } = require('./database/db');
+const skillRoutes = require('./routes/skill.routes');
+const projectRoutes = require('./routes/project.routes');
 
 class Server {
   constructor() {
@@ -13,22 +12,22 @@ class Server {
     this.port = process.env.PORT;
     this.host = process.env.HOST;
     this.paths = {
-      texts: '/texts',
+      skill: '/skill',
+      project: '/project',
     };
 
-    // this.connectDB();
     this.middlewares();
     this.routes();
   }
 
-  // static async connectDB() {
-  //   try {
-  //     await sequelize.sync({ force: false });
-  //     console.log('Postgresql database online.');
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+  static async connectDB() {
+    try {
+      await sequelize.sync({ force: false });
+      console.log('Postgresql database online.');
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   middlewares() {
     this.app.use(cors());
@@ -38,7 +37,8 @@ class Server {
   }
 
   routes() {
-    this.app.use(this.paths.texts, portFolioRoutes);
+    this.app.use(this.paths.skill, skillRoutes);
+    this.app.use(this.paths.project, projectRoutes);
   }
 
   listen() {

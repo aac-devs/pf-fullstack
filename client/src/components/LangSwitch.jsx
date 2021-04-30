@@ -45,8 +45,10 @@ const LangSwitch = () => {
   const handleChangeLanguage = () => {
     if (language === 'eng') {
       dispatch(changeToSpanish());
+      localStorage.setItem('language', 'esp');
     } else {
       dispatch(changeToEnglish());
+      localStorage.setItem('language', 'eng');
     }
   };
   return (

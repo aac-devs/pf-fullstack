@@ -1,84 +1,34 @@
-const projectData = {
-  title: '',
-  description: '',
-  image: '',
-  category: '',
-  links: {
-    app: '',
-    github: '',
-  },
-  tooltips: {
-    app: '',
-    github: '',
-  },
-};
-
-const skillData = {
-  image: '',
-  category: '',
-  tooltip: {
-    title: '',
-  },
-};
+import types from '../types/types';
 
 const initialState = {
-  profile: {
-    image: '',
-    labels: {
-      name: '',
-      service: '',
-      phrase: '',
-      location: '',
-    },
-    links: {
-      linkedin: '',
-      github: '',
-      cv: '',
-    },
-    tooltips: {
-      linkedin: '',
-      github: '',
-      cv: '',
-    },
-  },
-  routes: {
-    labels: {
-      projects: '',
-      skills: '',
-      contact: '',
-    },
-  },
-  navbar: {
-    tooltips: {
-      mode: '',
-      language: '',
-    },
-  },
-  contact: {
-    labels: {
-      name: '',
-      email: '',
-      message: '',
-      resolve: '',
-      btn: '',
-    },
-  },
-  footer: '',
+  skillCategories: [],
+  projectCategories: [],
+  skills: [],
+  projects: [],
 };
-
-// projects: {
-//   categories: [], // web \ electronic
-//   list: [projectData],
-// },
-// skills: {
-//   categories: [], // programming langueage | web tech
-//   list: [skillData],
-// },
 
 const dataReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 1:
-      return initialState;
+    case types.data.loadSkillCategories:
+      return {
+        ...state,
+        skillCategories: action.payload,
+      };
+    case types.data.loadProjectCategories:
+      return {
+        ...state,
+        projectCategories: action.payload,
+      };
+    case types.data.loadSkills:
+      return {
+        ...state,
+        skills: action.payload,
+      };
+    case types.data.loadProjects:
+      return {
+        ...state,
+        projects: action.payload,
+      };
 
     default:
       return state;

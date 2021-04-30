@@ -57,26 +57,26 @@ const Body = styled.div`
         font-size: 32px;
       }
       @media (min-width: 768px) {
-        font-size: 19px;
+        font-size: 18px;
         text-align: center;
       }
       @media (min-width: 896px) {
         font-size: 22px;
       }
       @media (min-width: 1024px) {
-        font-size: 26px;
+        font-size: 25px;
       }
       @media (min-width: 1152px) {
-        font-size: 29px;
+        font-size: 28px;
       }
       @media (min-width: 1280px) {
-        font-size: 32px;
+        font-size: 31px;
       }
       @media (min-width: 1408px) {
-        font-size: 35px;
+        font-size: 34px;
       }
       @media (min-width: 1536px) {
-        font-size: 38px;
+        font-size: 37px;
       }
     }
     .role {

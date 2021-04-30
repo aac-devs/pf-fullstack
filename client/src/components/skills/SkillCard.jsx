@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 const Container = styled.div`
   display: inline-block;
-  background-color: ${(props) => props.theme.color.bg.tertiary};
+  background-color: ${(props) => props.theme.color.bg.skill};
   border: 1px solid ${(props) => props.theme.color.border.primary};
   padding: 10px;
   margin: 0 10px 10px 0;
@@ -17,8 +17,8 @@ const Container = styled.div`
 
 const Image = styled.div`
   background-image: url(${(props) => props.url});
-  background-size: cover;
-  background-position: top;
+  background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
   height: 70px;
   width: 70px;

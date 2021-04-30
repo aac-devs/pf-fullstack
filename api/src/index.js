@@ -14,5 +14,5 @@ console.log('PORT:', process.env.PORT);
 console.log('DB:', process.env.DATABASE_URL);
 
 const server = new Server();
-// Server.connectDB();
+Server.connectDB();
 server.listen();

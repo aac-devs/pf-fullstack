@@ -48,7 +48,6 @@ const Tab = styled(NavLink)`
 
 const Tabs = () => {
   const { language } = useSelector((state) => state.ui);
-
   return (
     <Container>
       <Tab to="/projects" activeClassName="active">
