@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import { changeToDarkMode, changeToLightMode } from '../actions/ui.actions';
+import { changeToDarkMode, changeToLightMode } from '../../actions/ui.actions';
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.color.switch.dark};

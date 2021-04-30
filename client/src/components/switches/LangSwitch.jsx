@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { changeToEnglish, changeToSpanish } from '../actions/ui.actions';
+import { changeToEnglish, changeToSpanish } from '../../actions/ui.actions';
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.color.switch.bg};
