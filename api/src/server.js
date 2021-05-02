@@ -3,8 +3,10 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const { sequelize } = require('./database/db');
+const profileRoutes = require('./routes/profile.routes');
 const skillRoutes = require('./routes/skill.routes');
 const projectRoutes = require('./routes/project.routes');
+const contactRoutes = require('./routes/contact.routes');
 
 class Server {
   constructor() {
@@ -13,7 +15,9 @@ class Server {
     this.host = process.env.HOST;
     this.paths = {
       skill: '/skill',
+      profile: '/profile',
       project: '/project',
+      contact: '/contact',
     };
 
     this.middlewares();
@@ -38,7 +42,9 @@ class Server {
 
   routes() {
     this.app.use(this.paths.skill, skillRoutes);
+    this.app.use(this.paths.profile, profileRoutes);
     this.app.use(this.paths.project, projectRoutes);
+    this.app.use(this.paths.contact, contactRoutes);
   }
 
   listen() {

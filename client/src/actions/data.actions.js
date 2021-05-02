@@ -21,6 +21,11 @@ const loadProjects = (payload) => ({
   payload,
 });
 
+const loadProfile = (payload) => ({
+  type: types.data.loadProfile,
+  payload,
+});
+
 const startReadingData = () => {
   return async (dispatch) => {
     let resp;
@@ -37,6 +42,9 @@ const startReadingData = () => {
     resp = await fetchingData('project');
     data = await resp.json();
     dispatch(loadProjects(data));
+    resp = await fetchingData('profile');
+    data = await resp.json();
+    dispatch(loadProfile(data));
   };
 };
 

@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import useForm from '../../hooks/useForm';
 
 const Container = styled.div`
   margin-top: 10px;
   @media (min-width: 768px) {
     margin-top: 20px;
+  }
+  .error-value {
+    &:focus {
+      border-color: red;
+      box-shadow: 0 0 3px red;
+    }
+  }
+  .success-value {
+    &:focus {
+      border-color: ${(props) => props.theme.color.input.focus_border};
+      box-shadow: 0 0 3px ${(props) => props.theme.color.input.focus_border};
+    }
   }
 `;
 const Form = styled.form`
@@ -35,10 +48,6 @@ const Form = styled.form`
     outline: none;
     border-radius: 6px;
     border: 1px solid ${(props) => props.theme.color.input.border};
-    &:focus {
-      border-color: ${(props) => props.theme.color.input.focus_border};
-      box-shadow: 0 0 3px ${(props) => props.theme.color.input.focus_border};
-    }
   }
   textarea {
     resize: none;
@@ -71,6 +80,62 @@ const Form = styled.form`
 
 const Contact = () => {
   const { language } = useSelector((state) => state.ui);
+  const [formValues, handleInputChange] = useForm({
+    name: '',
+    email: '',
+    message: '',
+    solve: '',
+  });
+  const { name, email, message, solve } = formValues;
+  const [operation, setOperation] = useState({
+    a: 0,
+    b: 0,
+    res: 0,
+  });
+  const { a: valA, b: valB } = operation;
+  const [validate, setValidate] = useState({
+    name: false,
+    email: false,
+    message: false,
+    solve: false,
+  });
+
+  useEffect(() => {
+    const a = Math.round(Math.random() * 100);
+    const b = Math.round(Math.random() * 100);
+    setOperation({ a, b, res: a + b });
+  }, []);
+
+  useEffect(() => {
+    const nameRegex = RegExp(/^[a-zA-Záéíóúü ,.'-]+$/u);
+    setValidate({
+      ...validate,
+      name: nameRegex.test(name),
+    });
+  }, [formValues.name]);
+
+  useEffect(() => {
+    const emailRegex = RegExp(
+      /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
+    );
+    setValidate({
+      ...validate,
+      email: emailRegex.test(email),
+    });
+  }, [formValues.email]);
+
+  useEffect(() => {
+    setValidate({
+      ...validate,
+      message: formValues.message.length > 3,
+    });
+  }, [formValues.message]);
+
+  useEffect(() => {
+    const resp = formValues.solve * 1;
+    const state = !Number.isNaN(resp) && resp === operation.res;
+    setValidate({ ...validate, solve: state });
+  }, [formValues.solve]);
 
   return (
     <Container>
@@ -79,38 +144,60 @@ const Contact = () => {
           {language === 'eng' ? 'Name:' : 'Nombre:'}
           <br />
           <input
+            className={validate.name ? 'success-value' : 'error-value'}
             type="text"
             id="contact-name"
             form="contact-form"
             autoComplete="off"
             maxLength="50"
+            value={name}
+            name="name"
+            onChange={handleInputChange}
           />
         </label>
         <label htmlFor="contact-email">
           {language === 'eng' ? 'Email:' : 'Correo:'}
           <br />
           <input
+            className={validate.email ? 'success-value' : 'error-value'}
             type="text"
             id="contact-email"
             form="contact-form"
             autoComplete="off"
             maxLength="50"
+            value={email}
+            name="email"
+            onChange={handleInputChange}
           />
         </label>
         <label htmlFor="contact-message">
           {language === 'eng' ? 'Message:' : 'Mensaje:'}
           <br />
-          <textarea id="contact-message" form="contact-form" maxLength="200" />
+          <textarea
+            className={validate.message ? 'success-value' : 'error-value'}
+            id="contact-message"
+            form="contact-form"
+            maxLength="200"
+            value={message}
+            name="message"
+            onChange={handleInputChange}
+          />
         </label>
         <label htmlFor="contact-verify">
-          {language === 'eng' ? 'Solve: ' : 'Resuelva: '}
-          25 + 41 =
+          {language === 'eng'
+            ? 'Please, solve this operation: '
+            : 'Por favor, resuelva esta operación: '}
+          {valA} + {valB} =
           <br />
           <input
+            className={validate.solve ? 'success-value' : 'error-value'}
             type="text"
             id="contact-verify"
             form="contact-form"
             autoComplete="off"
+            value={solve}
+            name="solve"
+            onChange={handleInputChange}
           />
         </label>
 

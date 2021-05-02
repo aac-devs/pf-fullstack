@@ -119,7 +119,7 @@ const ProjectCard = ({
               }
               theme={mode === 'dark' && 'light'}
             >
-              <a href={appLink}>
+              <a href={appLink} target="_blank" rel="noreferrer">
                 <BiLinkExternal
                   size="1.5rem"
                   style={{
@@ -145,7 +145,7 @@ const ProjectCard = ({
               }
               theme={mode === 'dark' && 'light'}
             >
-              <a href={githubLink}>
+              <a href={githubLink} target="_blank" rel="noreferrer">
                 <SiGithub size="1.3rem" style={{ verticalAlign: 'middle' }} />
               </a>
             </Tippy>

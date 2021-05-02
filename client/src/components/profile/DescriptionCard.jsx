@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -82,18 +82,37 @@ const Container = styled.div`
 
 const DescriptionCard = () => {
   const { mode, language } = useSelector((state) => state.ui);
+  const {
+    profile: { data: profile },
+  } = useSelector((state) => state.data);
   const theme = useContext(ThemeContext);
+  const [values, setValues] = useState({});
+  const { phrase, country, linkedIn, repoLink, cvLink } = values;
+
+  useEffect(() => {
+    if (profile?.length > 0) {
+      setValues({
+        phrase:
+          language === 'eng' ? profile[0].phrase_eng : profile[0].phrase_esp,
+        country: profile[0].country,
+        linkedIn: profile[0].linkedIn,
+        repoLink: profile[0].repoLink,
+        // cvLink: profile[0].cvLink,
+        cvLink:
+          'https://drive.google.com/file/d/1WFKJjjqoRH4KngOIJ-zVPZK2GzRe7tLf/view?usp=sharing',
+      });
+    }
+  }, [profile, language]);
+
+  // TODO: falta enviar los datos para guardar el mensaje y los estilos del botón cuando está activo o inactivo.
+
   return (
     <Container>
-      <div className="note">
-        {language === 'eng'
-          ? 'Always learning and ready for new challenges.'
-          : 'Siempre aprendiendo y listo para nuevos desafíos.'}
-      </div>
+      <div className="note">{phrase}</div>
       <div className="country-networks">
         <div className="country">
           <ImLocation color="red" />
-          &nbsp;Argentina
+          &nbsp;{country}
         </div>
         <div className="networks">
           <Tippy
@@ -107,7 +126,7 @@ const DescriptionCard = () => {
             }
             theme={mode === 'dark' && 'light'}
           >
-            <a href="/">
+            <a href={linkedIn} target="_blank" rel="noreferrer">
               <SiLinkedin size="18px" style={{ verticalAlign: 'middle' }} />
             </a>
           </Tippy>
@@ -122,7 +141,7 @@ const DescriptionCard = () => {
             }
             theme={mode === 'dark' && 'light'}
           >
-            <a href="/">
+            <a href={repoLink} target="_blank" rel="noreferrer">
               <SiGithub size="18px" style={{ verticalAlign: 'middle' }} />
             </a>
           </Tippy>
@@ -137,7 +156,7 @@ const DescriptionCard = () => {
             }
             theme={mode === 'dark' && 'light'}
           >
-            <a href="/">
+            <a href={cvLink} target="_blank" rel="noreferrer">
               <VscFilePdf size="19px" style={{ verticalAlign: 'middle' }} />
             </a>
           </Tippy>

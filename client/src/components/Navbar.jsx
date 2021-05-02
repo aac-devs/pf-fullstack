@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/light.css';
-import LangSwitch from './LangSwitch';
-import ModeSwitch from './ModeSwitch';
+import LangSwitch from './switches/LangSwitch';
+import ModeSwitch from './switches/ModeSwitch';
 
 const Container = styled.div`
   height: 100%;

@@ -50,13 +50,13 @@ const Skills = () => {
       let components = [];
       categories.forEach((e) => {
         components.push(
-          <Titles key={e.id}>
+          <Titles key={`cat${e.id}`}>
             {lang === 'eng' ? e.name_eng : e.name_esp}
           </Titles>,
         );
         const skls = skills.filter((s) => s.category === e.name_eng);
         const cards = skls.map((s) => (
-          <SkillCard key={s.id} name={s.name} image={s.image} />
+          <SkillCard key={`skl${s.id}`} name={s.name} image={s.image} />
         ));
         components = [...components, ...cards];
       });

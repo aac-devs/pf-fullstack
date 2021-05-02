@@ -1,11 +1,7 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Project extends Model {
-    // static associate(models) {
-    //   this.belongsTo(models.project_category);
-    // }
-  }
+  class Project extends Model {}
   Project.init(
     {
       title_eng: DataTypes.STRING,
@@ -14,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       description_esp: DataTypes.TEXT,
       image: DataTypes.STRING,
       link: DataTypes.STRING,
+      linkTooltip: DataTypes.STRING,
       repo: DataTypes.STRING,
       category: DataTypes.STRING,
     },

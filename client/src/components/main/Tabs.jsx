@@ -52,7 +52,9 @@ const Tabs = () => {
     <Container>
       <Tab to="/projects" activeClassName="active">
         <GoProject size="18px" style={{ verticalAlign: 'middle' }} />
-        <span>&nbsp;&nbsp;{language === 'eng' ? 'Projects' : 'Proyectos'}</span>
+        <span>
+          &nbsp;&nbsp;{language === 'eng' ? 'Experience' : 'Experiencia'}
+        </span>
       </Tab>
       <Tab to="/skills" activeClassName="active">
         <FaUserCog size="18px" style={{ verticalAlign: 'middle' }} />

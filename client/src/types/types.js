@@ -6,10 +6,11 @@ const types = {
     changeToEnglish: '[UI] Change to english',
   },
   data: {
-    loadSkillCategories: '[DATA] Get skill categories',
-    loadSkills: '[DATA] Get skills',
-    loadProjectCategories: '[DATA] Get project categories',
-    loadProjects: '[DATA] Get projects',
+    loadSkillCategories: '[DATA] Load skill categories',
+    loadSkills: '[DATA] Load skills',
+    loadProjectCategories: '[DATA] Load project categories',
+    loadProjects: '[DATA] Load projects',
+    loadProfile: '[DATA] Load profile',
   },
 };
 

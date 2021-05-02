@@ -16,7 +16,7 @@ const sequelize = new Sequelize(`${process.env.DATABASE_URL}`, {
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
   dialect: 'postgres',
   define: {
-    timestamps: false,
+    timestamps: true,
     underscored: true,
   },
   dialectOptions:

@@ -5,6 +5,7 @@ const initialState = {
   projectCategories: [],
   skills: [],
   projects: [],
+  profile: [],
 };
 
 const dataReducer = (state = initialState, action) => {
@@ -28,6 +29,11 @@ const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         projects: action.payload,
+      };
+    case types.data.loadProfile:
+      return {
+        ...state,
+        profile: action.payload,
       };
 
     default:

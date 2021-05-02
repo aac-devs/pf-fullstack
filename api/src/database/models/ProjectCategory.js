@@ -1,11 +1,7 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class ProjectCategory extends Model {
-    // static associate(models) {
-    //   this.hasMany(models.project);
-    // }
-  }
+  class ProjectCategory extends Model {}
   ProjectCategory.init(
     {
       name_eng: DataTypes.STRING,

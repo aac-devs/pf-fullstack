@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import { SiJavascript } from 'react-icons/si';
 import { useSelector } from 'react-redux';
@@ -122,13 +122,28 @@ const Body = styled.div`
 
 const InfoCard = () => {
   const { language } = useSelector((state) => state.ui);
+  const {
+    profile: { data: profile },
+  } = useSelector((state) => state.data);
   const theme = useContext(ThemeContext);
+  const [values, setValues] = useState({});
+  const { image, service } = values;
+
+  useEffect(() => {
+    if (profile?.length > 0) {
+      setValues({
+        image: profile[0].image,
+        service:
+          language === 'eng' ? profile[0].service_eng : profile[0].service_esp,
+      });
+    }
+  }, [profile, language]);
 
   return (
     <Container>
       <Image>
         <img
-          src="https://res.cloudinary.com/aac-devs-data/image/upload/v1619362248/portfolio/github-image_iv3b80.jpg"
+          src={image}
           style={{ height: 'auto' }}
           width="260"
           height="260"
@@ -140,9 +155,8 @@ const InfoCard = () => {
           <span className="name">Andrés Arana Castillo</span>
           <span className="role">
             <SiJavascript size="1rem" color={theme.color.jsLogo} />
-            {language === 'eng'
-              ? ' Fullstack Web Development'
-              : ' Desarrollo Web Fullstack'}
+            &nbsp;&nbsp;
+            {service}
           </span>
         </div>
       </Body>
